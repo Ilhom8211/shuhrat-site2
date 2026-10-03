@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пакеты с логотипом в Шымкент / Восток 116 / 2 2026 | Syntas Print — Шелкография от 100 шт</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        syntas: {
+                            gold: '#f0d065',
+                            goldLight: '#ffec99',
+                            goldDark: '#b89723',
+                            dark: '#080c14',
+                            card: '#111827',
+                            cardHover: '#1f293d',
+                            border: '#2a374a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(240, 208, 101, 0.15);
+        }
+        .glow-gold {
+            box-shadow: 0 0 35px -5px rgba(240, 208, 101, 0.3);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(240, 208, 101, 0.4);
+        }
+    
+        /* === Interactive 3D logo: Hero right side only === */
+        .syntas-orb-stage{
+            width:min(500px,100%);
+            aspect-ratio:1/1;
+            min-height:360px;
+            display:grid;
+            place-items:center;
+            perspective:1100px;
+            touch-action:none;
+            user-select:none;
+            cursor:grab;
+        }
+        .syntas-orb-stage:active{cursor:grabbing}
+        .syntas-orb{
+            position:relative;
+            width:72%;
+            aspect-ratio:1;
+            border-radius:50%;
+            transform-style:preserve-3d;
+            will-change:transform;
+            box-shadow:
+                inset -34px -30px 58px rgba(0,0,0,.52),
+                inset 14px 10px 30px rgba(255,255,255,.10),
+                0 30px 90px rgba(30,54,150,.38);
+        }
+        .syntas-orb:before{
+            content:"";
+            position:absolute;
+            inset:0;
+            border-radius:50%;
+            background:
+                radial-gradient(circle at 28% 22%,rgba(255,255,255,.40) 0 4%,rgba(255,255,255,.10) 10%,transparent 27%),
+                radial-gradient(circle at 70% 76%,rgba(0,0,0,.38),transparent 58%);
+            transform:translateZ(30px);
+            pointer-events:none;
+        }
+        .syntas-orb-ring{
+            position:absolute;
+            inset:-4%;
+            border-radius:50%;
+            border:1px solid rgba(240,208,101,.28);
+            box-shadow:0 0 28px rgba(240,208,101,.12);
+            transform:translateZ(-8px) rotateX(64deg) rotateY(-22deg);
+            pointer-events:none;
+        }
+        .syntas-orb-ring-2{
+            inset:5%;
+            opacity:.42;
+            transform:translateZ(-22px) rotateX(73deg) rotateY(28deg);
+        }
+        .syntas-orb-core{
+            position:absolute;
+            inset:11%;
+            border-radius:50%;
+            overflow:hidden;
+            transform:translateZ(36px);
+            background:#0e1626;
+            border:2px solid rgba(255,255,255,.14);
+            box-shadow:0 0 50px rgba(75,98,255,.28);
+        }
+        .syntas-orb-core img{
+            width:100%;
+            height:100%;
+            display:block;
+            object-fit:cover;
+            border-radius:50%;
+            pointer-events:none;
+        }
+        .syntas-orb-fallback{
+            width:100%;
+            height:100%;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            color:#fff;
+            font-weight:900;
+            font-size:42px;
+            text-align:center;
+            line-height:.9;
+            background:linear-gradient(145deg,#243a83,#101a2f);
+        }
+        .syntas-orb-fallback span{
+            font-size:15px;
+            letter-spacing:.25em;
+            text-transform:uppercase;
+            color:#f0d065;
+            margin-top:10px;
+        }
+        .syntas-orb-highlight{
+            position:absolute;
+            inset:4%;
+            border-radius:50%;
+            border:1px solid rgba(255,255,255,.18);
+            transform:translateZ(8px);
+            pointer-events:none;
+        }
+        .syntas-orb-shadow{
+            position:absolute;
+            left:50%;
+            bottom:11%;
+            width:48%;
+            height:10%;
+            transform:translateX(-50%);
+            border-radius:50%;
+            background:rgba(0,0,0,.48);
+            filter:blur(18px);
+            transition:.25s;
+        }
+        .syntas-orb-stage.dragging .syntas-orb-shadow{
+            transform:translateX(-50%) scale(.88);
+            opacity:.68;
+        }
+        .syntas-orb-hint{
+            position:absolute;
+            left:50%;
+            bottom:15%;
+            transform:translateX(-50%);
+            padding:9px 13px;
+            white-space:nowrap;
+            border:1px solid rgba(240,208,101,.20);
+            background:rgba(8,12,20,.72);
+            backdrop-filter:blur(12px);
+            border-radius:999px;
+            color:#cbd3df;
+            font-size:11px;
+            z-index:3;
+        }
+        .syntas-orb-label{
+            position:absolute;
+            left:50%;
+            bottom:6%;
+            transform:translateX(-50%);
+            white-space:nowrap;
+            color:rgba(203,211,223,.62);
+            letter-spacing:.18em;
+            font-size:9px;
+        }
+        @media (max-width:1024px){
+            .syntas-orb-stage{min-height:320px}
+        }
+        @media (max-width:640px){
+            .syntas-orb-stage{min-height:300px;width:min(430px,100%)}
+            .syntas-orb{width:68%}
+            .syntas-orb-hint{bottom:12%;font-size:10px}
+            .syntas-orb-label{bottom:4%;font-size:8px}
+        }
+        @media (prefers-reduced-motion:reduce){
+            .syntas-orb{transition:none}
+        }
+
+    
+        /* === SMOOTH MOTION ONLY — VISUAL DESIGN UNCHANGED === */
+        :root{
+            --smooth-ease:cubic-bezier(.22,1,.36,1);
+            --smooth-fast:.32s;
+            --smooth-med:.65s;
+            --smooth-slow:1s;
+        }
+        a,button,[class*="transition-"]{
+            -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+        }
+        button,a{
+            transition-timing-function:var(--smooth-ease)!important;
+        }
+        [data-aos]{
+            transition-timing-function:var(--smooth-ease)!important;
+        }
+        .glass-panel,
+        .prod-card,
+        .cat-btn,
+        .calc-type,
+        .calc-size,
+        .calc-color{
+            transition-timing-function:var(--smooth-ease)!important;
+        }
+        .group img{
+            will-change:transform;
+            transform:translateZ(0);
+        }
+        .hover\:scale-110:hover,
+        .group:hover .group-hover\:scale-110{
+            transform:translateZ(0) scale(1.06)!important;
+        }
+        .hover\:-translate-y-1:hover,
+        .hover\:-translate-y-0\.5:hover{
+            transition-duration:var(--smooth-fast)!important;
+        }
+        .animate-pulse,.animate-bounce{
+            animation-timing-function:var(--smooth-ease)!important;
+        }
+        html{
+            scroll-behavior:smooth;
+            scroll-padding-top:80px;
+        }
+        @media (prefers-reduced-motion:reduce){
+            html{scroll-behavior:auto}
+        }
+
+    </style>
+</head>
+<body class="bg-syntas-dark text-slate-100 antialiased selection:bg-syntas-gold selection:text-black overflow-x-hidden">
+
+    <!-- Top WhatsApp Instant Bar -->
+    <div class="bg-gradient-to-r from-syntas-goldDark via-syntas-gold to-syntas-goldDark text-black py-2.5 px-4 text-center text-xs sm:text-sm font-black flex items-center justify-center space-x-2 tracking-wide shadow-lg z-50 relative">
+        <i class="fa-brands fa-whatsapp text-lg"></i>
+        <span>Менеджер на связи в WhatsApp (2026):</span>
+        <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="underline hover:opacity-75 uppercase">Написать сейчас</a>
+        <span class="hidden md:inline mx-2">•</span>
+        <span class="hidden md:inline font-bold">Изготовление за 3 дня • Тираж от 100 шт</span>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 backdrop-blur-xl bg-syntas-dark/85 border-b border-syntas-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 group cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-syntas-goldDark to-syntas-goldLight flex items-center justify-center shadow-lg shadow-syntas-gold/20 text-black font-black text-2xl transform group-hover:rotate-6 transition-transform">
+                    S
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white">SYNTAS <span class="text-syntas-gold">PRINT</span></span>
+                    <span class="block text-[10px] text-syntas-gold/80 uppercase tracking-widest font-bold">@syntas_print • Пакеты с логотипом</span>
+                </div>
+            </div>
+
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+                <a href="#faq" class="hover:text-syntas-gold transition-colors">Вопросы & Ответы</a>
+                <a href="#catalog" class="hover:text-syntas-gold transition-colors">Каталог</a>
+                <a href="#calculator" class="hover:text-syntas-gold transition-colors">Калькулятор</a>
+                <a href="#reviews" class="hover:text-syntas-gold transition-colors">Отзывы</a>
+                <a href="#gallery" class="hover:text-syntas-gold transition-colors">Наши работы</a>
+                <a href="#contacts" class="hover:text-syntas-gold transition-colors">Контакты</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="hidden sm:flex items-center space-x-2 bg-syntas-gold hover:bg-syntas-goldLight text-black font-black px-5 py-3 rounded-2xl shadow-lg shadow-syntas-gold/25 transition-all transform hover:-translate-y-0.5 text-sm">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Заказать в WhatsApp</span>
+                </a>
+                <button id="mobileMenuBtn" class="lg:hidden text-slate-300 hover:text-white p-2.5 rounded-xl bg-syntas-card border border-syntas-border">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-syntas-card border-b border-syntas-border px-6 py-6 space-y-4 animate-fadeIn">
+            <a href="#faq" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Вопросы & Ответы</a>
+            <a href="#catalog" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Каталог</a>
+            <a href="#calculator" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Калькулятор</a>
+            <a href="#reviews" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Отзывы</a>
+            <a href="#gallery" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Наши работы</a>
+            <a href="#contacts" class="block text-slate-200 hover:text-syntas-gold font-bold text-base py-1">Контакты</a>
+            <div class="pt-2">
+                <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="w-full flex items-center justify-center space-x-2 bg-syntas-gold text-black font-black py-3.5 rounded-2xl">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Написать в WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Direct Answer Architecture -->
+    <section class="relative pt-20 pb-28 lg:pt-28 lg:pb-36 overflow-hidden bg-gradient-to-b from-syntas-dark via-syntas-card/40 to-syntas-dark">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f0d065_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 bg-syntas-gold/10 border border-syntas-gold/30 px-4 py-2 rounded-full text-syntas-gold text-xs sm:text-sm font-bold tracking-wide">
+                        <i class="fa-solid fa-crown text-syntas-gold animate-bounce"></i>
+                        <span>Пакет, который продаёт ваш бренд • @syntas_print</span>
+                    </div>
+                    
+                    <!-- Direct Answer SEO Heading -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-black text-white tracking-tight leading-[1.15]">
+                        Пакеты с логотипом в Шымкент / Восток 116 / 2 <span class="text-syntas-gold text-glow">от 100 шт за 3 дня</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Собственное производство брендированных бумажных, крафт, ПВД и ПВХ пакетов методом шелкографии и тиснения. <strong>Сколько стоят пакеты в 2026 году?</strong> Цены от 80 ₸ за шт. Бесплатный макет при заказе!
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="w-full sm:w-auto bg-syntas-gold hover:bg-syntas-goldLight text-black font-black px-8 py-4 rounded-2xl shadow-2xl shadow-syntas-gold/30 transition-all transform hover:-translate-y-1 text-center flex items-center justify-center space-x-3 text-base">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Заказать в WhatsApp</span>
+                        </a>
+                        <a href="#calculator" class="w-full sm:w-auto bg-syntas-card hover:bg-syntas-cardHover text-white font-bold px-8 py-4 rounded-2xl border border-syntas-border transition-all text-center flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-solid fa-calculator text-syntas-gold"></i>
+                            <span>Рассчитать онлайн</span>
+                        </a>
+                    </div>
+
+                    <!-- Direct Facts Bar -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-syntas-border/80">
+                        <div class="glass-panel p-4 rounded-2xl">
+                            <div class="text-2xl font-black text-syntas-gold">от 100 шт</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5 font-medium">Мин. тираж</div>
+                        </div>
+                        <div class="glass-panel p-4 rounded-2xl">
+                            <div class="text-2xl font-black text-syntas-gold">3–5 дней</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5 font-medium">Сроки печати</div>
+                        </div>
+                        <div class="glass-panel p-4 rounded-2xl">
+                            <div class="text-2xl font-black text-syntas-gold">от 80 ₸</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5 font-medium">Цена за ед.</div>
+                        </div>
+                        <div class="glass-panel p-4 rounded-2xl">
+                            <div class="text-2xl font-black text-syntas-gold">100%</div>
+                            <div class="text-[11px] text-slate-400 mt-0.5 font-medium">Премиум качество</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive 3D Logo -->
+                <div class="lg:col-span-5" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-8 bg-gradient-to-r from-syntas-gold to-amber-600 rounded-full blur-3xl opacity-15 animate-pulse pointer-events-none"></div>
+                        <div id="syntasOrbStage" class="syntas-orb-stage relative mx-auto" aria-label="Интерактивный 3D логотип Syntas Print">
+                            <div class="syntas-orb-shadow"></div>
+                            <div id="syntasOrb" class="syntas-orb">
+                                <div class="syntas-orb-ring"></div>
+                                <div class="syntas-orb-ring syntas-orb-ring-2"></div>
+                                <div class="syntas-orb-core"><img src="data:image/jpeg;base64,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" alt="Syntas Print logo"></div>
+                                <div class="syntas-orb-highlight"></div>
+                            </div>
+                            <div class="syntas-orb-hint">↔ Потяни, чтобы покрутить</div>
+                            <div class="syntas-orb-label">SYNTAS / PRINT / PACKAGING</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO FAQ Section (Writing under questions as requested) -->
+    <section id="faq" class="py-24 bg-syntas-card/60 border-t border-syntas-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16" data-aos="fade-up">
+                <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Вопросы и ответы (FAQ 2026)</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Всё о печати пакетов с логотипом</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Прямые и честные ответы на главные вопросы клиентов нашей типографии.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- FAQ 1 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Сколько стоят пакеты с логотипом в Шымкент / Восток 116 / 2 в 2026?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Цена зависит от типа изделия и тиража. Крафт-пакеты с логотипом стоят от 80 ₸ за штуку при заказе от 500 шт. Бумажные ламинированные — от 130 ₸. Точный расчет занимает 1 минуту в нашем онлайн-калькуляторе ниже.
+                    </p>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Какой минимальный тираж заказа?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Минимальный тираж для бумажных и крафт-пакетов с шелкографией составляет всего от 100 штук. Для полиэтиленовых пакетов ПВД с вырубной ручкой — от 500 штук.
+                    </p>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Каковы сроки изготовления?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Стандартный срок производства составляет от 3 до 5 рабочих дней с момента утверждения макета. Возможна срочная печать по предварительному согласованию.
+                    </p>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Как или в чем передать макет логотипа?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Вы можете отправить ваш логотип в векторном формате (CDR, AI, PDF) нам в WhatsApp. Если у вас нет готового макета, наши дизайнеры подготовят его абсолютно бесплатно.
+                    </p>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Есть ли доставка в Астану и по Казахстану?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Да! Производство и офисы компании Syntas Print находятся в Шымкент / Восток 116 / 2. Мы бережно упаковываем продукцию и отправляем заказы курьерскими службами во все регионы РК.
+                    </p>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-4 hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-12 h-12 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-xl font-black">
+                        ?
+                    </div>
+                    <h3 class="text-lg font-bold text-white">ПВД или Крафт: что лучше выбрать?</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        ПВД пакеты с прорубной ручкой выглядят презентабельно и подходят для бутиков одежды и обуви. Крафт-пакеты идеально подходят для эко-брендов, кофеен и ресторанов доставки.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalog" class="py-24 bg-syntas-dark border-t border-syntas-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16" data-aos="fade-up">
+                <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Наш ассортимент</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Каталог пакетов с логотипом</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Выберите тип брендированной упаковки для вашего бизнеса.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up">
+                <button onclick="filterCatalog('all')" class="cat-btn active px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-syntas-gold text-black shadow-lg shadow-syntas-gold/20 transition-all transform hover:scale-105">Все пакеты</button>
+                <button onclick="filterCatalog('paper')" class="cat-btn px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-syntas-card text-slate-300 border border-syntas-border hover:border-syntas-gold transition-all transform hover:scale-105">Бумажные</button>
+                <button onclick="filterCatalog('poly')" class="cat-btn px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-syntas-card text-slate-300 border border-syntas-border hover:border-syntas-gold transition-all transform hover:scale-105">Полиэтиленовые (ПВД)</button>
+                <button onclick="filterCatalog('kraft')" class="cat-btn px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-syntas-card text-slate-300 border border-syntas-border hover:border-syntas-gold transition-all transform hover:scale-105">Крафт</button>
+                <button onclick="filterCatalog('pvc')" class="cat-btn px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold bg-syntas-card text-slate-300 border border-syntas-border hover:border-syntas-gold transition-all transform hover:scale-105">ПВХ / Прозрачные</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Product 1 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="paper" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80" alt="Бумажные пакеты" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=Paper+Bag'">
+                        <div class="absolute top-4 left-4 bg-syntas-gold text-black text-xs font-black px-3.5 py-1.5 rounded-xl shadow">Бумажные</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">Бумажные пакеты с ламинацией</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Плотная мелованная бумага, глянцевая или матовая ламинация, ручки из рейнфорса или ленты. Премиум шелкография.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 100 шт</span>
+                            <button onclick="selectProductForCalc('paper', 'Бумажные пакеты с ламинацией')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="poly" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80" alt="Пакеты ПВД" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=Poly+Bag'">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow">Полиэтилен</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">ПВД пакеты с прорубной ручкой</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Прочные пакеты с укрепленной ручкой (рейтер). Идеальное решение для магазинов одежды, обуви и бутиков в ТРЦ.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 500 шт</span>
+                            <button onclick="selectProductForCalc('poly', 'ПВД пакеты с прорубной ручкой')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="kraft" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=600&q=80" alt="Крафт пакеты" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=Kraft+Bag'">
+                        <div class="absolute top-4 left-4 bg-amber-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow">Крафт</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">Эко-крафт пакеты с ручками</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Бурый и белый крафт высшего качества. Главный эко-тренд для кофеен, ресторанов, кондитерских и служб доставок.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 100 шт</span>
+                            <button onclick="selectProductForCalc('kraft', 'Эко-крафт пакеты с ручками')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="pvc" data-aos="fade-up" data-aos-delay="400">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="ПВХ пакеты" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=PVC+Bag'">
+                        <div class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow">ПВХ / Прозрачные</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">Прозрачные ПВХ пакеты на молнии</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Для текстиля, постельного белья, косметики и подарочных наборов. Удобный замок и ручка, презентабельный вид.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 200 шт</span>
+                            <button onclick="selectProductForCalc('pvc', 'Прозрачные ПВХ пакеты на молнии')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="poly" data-aos="fade-up" data-aos-delay="500">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533038585843-e184fa9d5b56?auto=format&fit=crop&w=600&q=80" alt="Пакеты Майка" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=Tshirt+Bag'">
+                        <div class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow">Полиэтилен</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">Пакеты «Майка» с логотипом</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Максимально вместительные и прочные пакеты для супермаркетов, аптек, магазинов у дома и служб быстрой доставки.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 1000 шт</span>
+                            <button onclick="selectProductForCalc('poly', 'Пакеты Майка с логотипом')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="prod-card glass-panel rounded-3xl overflow-hidden shadow-2xl hover:border-syntas-gold/80 transition-all duration-300 flex flex-col group" data-cat="paper" data-aos="fade-up" data-aos-delay="600">
+                    <div class="relative h-64 bg-slate-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Дизайнерская бумага" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/600x400/111827/f0d065?text=Designer+Paper'">
+                        <div class="absolute top-4 left-4 bg-syntas-gold text-black text-xs font-black px-3.5 py-1.5 rounded-xl shadow">Бумажные</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-syntas-gold transition-colors">Пакеты из дизайнерской бумаги</h3>
+                            <p class="text-slate-400 text-sm leading-relaxed">Элитный класс. Бумага Эфалин или Имитлин, тиснение золотой/серебряной фольгой, шелкография наивысшего качества.</p>
+                        </div>
+                        <div class="pt-4 border-t border-syntas-border flex items-center justify-between">
+                            <span class="text-xs text-slate-400 font-medium"><i class="fa-solid fa-box text-syntas-gold mr-1.5"></i> Мин. тираж: 100 шт</span>
+                            <button onclick="selectProductForCalc('paper', 'Пакеты из дизайнерской бумаги')" class="bg-syntas-dark hover:bg-syntas-gold hover:text-black text-white text-xs font-bold px-4 py-3 rounded-xl border border-syntas-border transition-all">Рассчитать</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Cost Calculator Section -->
+    <section id="calculator" class="py-24 bg-syntas-card border-t border-syntas-border relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-syntas-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16" data-aos="fade-up">
+                <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Онлайн расчет</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Калькулятор стоимости тиража</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Настройте параметры тиража и мгновенно отправьте готовый расчет в наш WhatsApp.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start glass-panel rounded-3xl p-6 sm:p-10 shadow-2xl" data-aos="zoom-in" data-aos-duration="800">
+                
+                <!-- Left: Options -->
+                <div class="lg:col-span-7 space-y-8">
+                    
+                    <!-- 1. Type -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-bold text-white flex items-center justify-between">
+                            <span>1. Выберите тип пакета:</span>
+                            <span class="text-xs text-syntas-gold font-normal">влияет на базовую стоимость</span>
+                        </label>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <button type="button" onclick="setCalcType('paper', 130)" class="calc-type p-4 rounded-2xl border-2 border-syntas-gold bg-syntas-gold/15 text-center transition-all active shadow-lg" data-type="paper">
+                                <i class="fa-solid fa-file-lines text-syntas-gold text-2xl mb-1.5 block"></i>
+                                <span class="text-xs font-bold text-white block">Бумажный</span>
+                            </button>
+                            <button type="button" onclick="setCalcType('poly', 90)" class="calc-type p-4 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-type="poly">
+                                <i class="fa-solid fa-layer-group text-blue-400 text-2xl mb-1.5 block"></i>
+                                <span class="text-xs font-bold text-white block">ПВД / ПНД</span>
+                            </button>
+                            <button type="button" onclick="setCalcType('kraft', 80)" class="calc-type p-4 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-type="kraft">
+                                <i class="fa-solid fa-seedling text-amber-400 text-2xl mb-1.5 block"></i>
+                                <span class="text-xs font-bold text-white block">Крафт</span>
+                            </button>
+                            <button type="button" onclick="setCalcType('pvc', 190)" class="calc-type p-4 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-type="pvc">
+                                <i class="fa-solid fa-box-archive text-purple-400 text-2xl mb-1.5 block"></i>
+                                <span class="text-xs font-bold text-white block">ПВХ / Замок</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 2. Size -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-bold text-white">2. Размер пакета:</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" onclick="setCalcSize('small', 1.0)" class="calc-size p-3.5 rounded-2xl border-2 border-syntas-gold bg-syntas-gold/15 text-center transition-all shadow" data-size="small">
+                                <span class="text-xs font-bold text-white block">Маленький</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5 font-mono">20х30 см</span>
+                            </button>
+                            <button type="button" onclick="setCalcSize('medium', 1.3)" class="calc-size p-3.5 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-size="medium">
+                                <span class="text-xs font-bold text-white block">Средний</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5 font-mono">30х40 см</span>
+                            </button>
+                            <button type="button" onclick="setCalcSize('large', 1.6)" class="calc-size p-3.5 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-size="large">
+                                <span class="text-xs font-bold text-white block">Большой</span>
+                                <span class="text-[10px] text-slate-400 block mt-0.5 font-mono">40х50+ см</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 3. Quantity -->
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <label class="text-sm font-bold text-white">3. Тираж (шт):</label>
+                            <span id="qtyVal" class="text-syntas-gold font-black text-lg bg-syntas-dark px-4 py-1.5 rounded-xl border border-syntas-border font-mono">500 шт</span>
+                        </div>
+                        <input type="range" id="qtyRange" min="100" max="5000" step="100" value="500" oninput="updateCalc()" class="w-full h-2.5 bg-syntas-dark rounded-lg appearance-none cursor-pointer accent-syntas-gold shadow-inner">
+                        <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                            <span>100 шт</span>
+                            <span>2500 шт</span>
+                            <span>5000 шт</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Colors -->
+                    <div class="space-y-3">
+                        <label class="block text-sm font-bold text-white">4. Цвета нанесения логотипа:</label>
+                        <div class="grid grid-cols-4 gap-3">
+                            <button type="button" onclick="setCalcColors(1, 1.0)" class="calc-color p-3 rounded-2xl border-2 border-syntas-gold bg-syntas-gold/15 text-center transition-all shadow" data-colors="1">
+                                <span class="text-xs font-bold text-white block">1 цвет</span>
+                                <span class="text-[10px] text-slate-400 block font-mono">1+0</span>
+                            </button>
+                            <button type="button" onclick="setCalcColors(2, 1.2)" class="calc-color p-3 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-colors="2">
+                                <span class="text-xs font-bold text-white block">2 цвета</span>
+                                <span class="text-[10px] text-slate-400 block font-mono">2+0</span>
+                            </button>
+                            <button type="button" onclick="setCalcColors(3, 1.4)" class="calc-color p-3 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-colors="3">
+                                <span class="text-xs font-bold text-white block">3 цвета</span>
+                                <span class="text-[10px] text-slate-400 block font-mono">3+0</span>
+                            </button>
+                            <button type="button" onclick="setCalcColors(4, 1.7)" class="calc-color p-3 rounded-2xl border-2 border-syntas-border bg-syntas-dark/60 text-center transition-all" data-colors="4">
+                                <span class="text-xs font-bold text-white block">Full color</span>
+                                <span class="text-[10px] text-slate-400 block font-mono">CMYK</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right: Summary & WhatsApp Order -->
+                <div class="lg:col-span-5 bg-syntas-dark border border-syntas-border rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6 shadow-2xl">
+                    <div class="space-y-5">
+                        <h3 class="text-xl font-bold text-white border-b border-syntas-border pb-4 flex items-center justify-between">
+                            <span>Ваш расчет</span>
+                            <i class="fa-solid fa-calculator text-syntas-gold"></i>
+                        </h3>
+                        <div class="space-y-3 text-sm text-slate-300">
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Тип пакета:</span>
+                                <span id="sumType" class="font-bold text-white">Бумажный</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Размер:</span>
+                                <span id="sumSize" class="font-bold text-white">Маленький (20х30)</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Тираж:</span>
+                                <span id="sumQty" class="font-bold text-white">500 шт</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">Нанесение:</span>
+                                <span id="sumColors" class="font-bold text-white">1 цвет</span>
+                            </div>
+                            <div class="flex justify-between pt-3 border-t border-syntas-border">
+                                <span class="text-slate-400">Цена за 1 шт:</span>
+                                <span id="sumPerItem" class="font-bold text-syntas-gold font-mono text-base">0 ₸</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-syntas-card border border-syntas-border p-5 rounded-2xl space-y-1.5 shadow-inner">
+                            <div class="text-xs text-slate-400 uppercase tracking-wider font-bold">Итоговая стоимость тиража:</div>
+                            <div id="sumTotal" class="text-3xl sm:text-4xl font-black text-white font-mono text-glow">0 ₸</div>
+                            <div class="text-[11px] text-emerald-400 flex items-center pt-1 font-medium">
+                                <i class="fa-solid fa-check-circle mr-1.5"></i> Оптовая скидка за тираж уже учтена
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button to WhatsApp -->
+                    <div class="pt-2">
+                        <button onclick="sendToWhatsApp()" class="w-full bg-syntas-gold hover:bg-syntas-goldLight text-black font-black py-4 px-6 rounded-2xl shadow-xl shadow-syntas-gold/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center space-x-2 text-base">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Отправить расчет в WhatsApp</span>
+                        </button>
+                        <p class="text-[11px] text-slate-400 text-center mt-3">Менеджер мгновенно примет заказ и согласует макет</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section (Отзывы5) -->
+    <section id="reviews" class="py-24 bg-syntas-dark border-t border-syntas-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16" data-aos="fade-up">
+                <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Реальные отзывы</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Что говорят о нас в Instagram</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Более 500+ довольных бутиков, магазинов и компаний в Шымкент / Восток 116 / 2.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-6 flex flex-col justify-between hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="space-y-4">
+                        <div class="flex text-syntas-gold space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "Заказывали бумажные пакеты с логотипом для нашего шоурума в Шымкент / Восток 116 / 2. Качество шелкографии просто потрясающее! Сделали даже на день раньше. Огромное спасибо Syntas Print!"
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-syntas-border flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-2xl bg-syntas-gold/20 text-syntas-gold font-black flex items-center justify-center text-lg">А</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Айгерим К.</div>
+                            <div class="text-[11px] text-slate-400">Бренд одежды «Azhur»</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-6 flex flex-col justify-between hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="space-y-4">
+                        <div class="flex text-syntas-gold space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "Работаем с ними уже больше года по крафт-пакетам для нашей кофейни. Всегда вовремя, отличные оптовые цены и очень вежливый сервис в WhatsApp. Рекомендую!"
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-syntas-border flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-2xl bg-syntas-gold/20 text-syntas-gold font-black flex items-center justify-center text-lg">Т</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Тимур Ж.</div>
+                            <div class="text-[11px] text-slate-400">Сеть кофеен «Coffee Lab»</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-panel p-8 rounded-3xl space-y-6 flex flex-col justify-between hover:border-syntas-gold/50 transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="space-y-4">
+                        <div class="flex text-syntas-gold space-x-1 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm italic leading-relaxed">
+                            "Заказали ПВД пакеты с прорубной ручкой в Астану. Доставили курьерской службой прямо до двери. Пакеты очень плотные, логотип держится идеально. Будем заказывать еще!"
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-syntas-border flex items-center space-x-3.5">
+                        <div class="w-11 h-11 rounded-2xl bg-syntas-gold/20 text-syntas-gold font-black flex items-center justify-center text-lg">М</div>
+                        <div>
+                            <div class="font-bold text-white text-sm">Мадина С.</div>
+                            <div class="text-[11px] text-slate-400">Магазин косметики «Zerde»</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-syntas-card border-t border-syntas-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16" data-aos="fade-up">
+                <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Наше портфолио</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Галерея выполненных заказов</h2>
+                <p class="text-slate-400 text-sm sm:text-base">Фото реальной брендированной продукции, изготовленной на нашем производстве.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="relative h-80 rounded-3xl overflow-hidden group border border-syntas-border shadow-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=700&q=80" alt="Пакет для бутика" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/700x500/111827/f0d065?text=Work+1'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-syntas-dark via-syntas-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-syntas-gold font-black uppercase tracking-wider">Бумажные пакеты</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Премиум шелкография для шоурума</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-80 rounded-3xl overflow-hidden group border border-syntas-border shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1607344645866-009c320c5ab8?auto=format&fit=crop&w=700&q=80" alt="Пакет кофеен" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/700x500/111827/f0d065?text=Work+2'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-syntas-dark via-syntas-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-syntas-gold font-black uppercase tracking-wider">Крафт пакеты</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Для сети кофеен и кондитерских</h4>
+                    </div>
+                </div>
+
+                <div class="relative h-80 rounded-3xl overflow-hidden group border border-syntas-border shadow-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=700&q=80" alt="Пакет ПВД" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" onerror="this.src='https://placehold.co/700x500/111827/f0d065?text=Work+3'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-syntas-dark via-syntas-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-xs text-syntas-gold font-black uppercase tracking-wider">ПВД с вырубной ручкой</span>
+                        <h4 class="text-xl font-bold text-white mt-1">Фирменные пакеты с логотипом</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="py-24 bg-syntas-dark border-t border-syntas-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-right">
+                    <span class="text-syntas-gold font-bold tracking-widest text-xs uppercase bg-syntas-gold/10 px-4 py-1.5 rounded-full border border-syntas-gold/20">Контакты</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">Готовы заказать пакеты с вашим логотипом?</h2>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Свяжитесь с нами прямо сейчас через WhatsApp. Мы ответим на все вопросы, сделаем быстрый расчет тиража и бесплатно подготовим макет!
+                    </p>
+                    
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-2xl shrink-0 shadow">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Прямой WhatsApp чат (мгновенный ответ)</div>
+                                <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="text-lg font-bold text-white hover:text-syntas-gold transition-colors">Написать в WhatsApp</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-2xl shrink-0 shadow">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Официальный Instagram аккаунт</div>
+                                <a href="https://instagram.com/syntas_print" target="_blank" class="text-lg font-bold text-white hover:text-syntas-gold transition-colors">@syntas_print</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 rounded-2xl bg-syntas-gold/15 text-syntas-gold flex items-center justify-center text-2xl shrink-0 shadow">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Производство и офисы</div>
+                                <div class="text-base font-bold text-white">г. Шымкент / Восток 116 / 2 / г. Шымкент / Восток 116 / 2, Казахстан</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 glass-panel p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6" data-aos="fade-left">
+                    <h3 class="text-2xl font-black text-white">Быстрый заказ в WhatsApp</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">Нажмите кнопку ниже, чтобы открыть официальный чат Syntas Print и начать обсуждение вашего заказа с менеджером.</p>
+                    
+                    <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="w-full bg-syntas-gold hover:bg-syntas-goldLight text-black font-black py-4 px-6 rounded-2xl shadow-xl shadow-syntas-gold/30 transition-all flex items-center justify-center space-x-3 text-base">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Открыть чат WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-syntas-dark border-t border-syntas-border py-12 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-syntas-gold text-black flex items-center justify-center font-black">
+                    S
+                </div>
+                <span class="text-lg font-black text-white">SYNTAS <span class="text-syntas-gold">PRINT</span></span>
+            </div>
+            <div class="text-xs text-center text-slate-500">
+                © 2026 Syntas Print (@syntas_print). Пакеты с логотипом и шелкография. Все права защищены.
+            </div>
+            <div class="flex items-center space-x-5 text-xl">
+                <a href="https://wa.me/message/R3TKN72WFOM7C1" target="_blank" class="hover:text-syntas-gold transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://instagram.com/syntas_print" target="_blank" class="hover:text-syntas-gold transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1100,
+            easing: 'cubic-bezier(.22,1,.36,1)',
+            once: true,
+            offset: 60,
+            mirror: false,
+            disable: () => window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.style.transition = 'opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1)';
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Catalog Filtering Logic
+        function filterCatalog(category) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-syntas-gold', 'text-black', 'shadow-lg', 'shadow-syntas-gold/20');
+                btn.classList.add('bg-syntas-card', 'text-slate-300', 'border', 'border-syntas-border');
+            });
+            event.target.classList.remove('bg-syntas-card', 'text-slate-300', 'border', 'border-syntas-border');
+            event.target.classList.add('bg-syntas-gold', 'text-black', 'shadow-lg', 'shadow-syntas-gold/20');
+
+            document.querySelectorAll('.prod-card').forEach(card => {
+                if (category === 'all' || card.getAttribute('data-cat') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Interactive Calculator State
+        let calc = {
+            typeName: 'Бумажный',
+            basePrice: 130,
+            sizeName: 'Маленький (20х30)',
+            sizeMult: 1.0,
+            qty: 500,
+            colorName: '1 цвет (1+0)',
+            colorMult: 1.0
+        };
+
+        function setCalcType(typeKey, price) {
+            if(typeKey === 'paper') calc.typeName = 'Бумажный';
+            if(typeKey === 'poly') calc.typeName = 'ПВД / ПНД';
+            if(typeKey === 'kraft') calc.typeName = 'Крафт';
+            if(typeKey === 'pvc') calc.typeName = 'ПВХ / Замок';
+            calc.basePrice = price;
+
+            document.querySelectorAll('.calc-type').forEach(b => {
+                b.classList.remove('border-syntas-gold', 'bg-syntas-gold/15', 'shadow-lg');
+                b.classList.add('border-syntas-border', 'bg-syntas-dark/60');
+            });
+            event.currentTarget.classList.remove('border-syntas-border', 'bg-syntas-dark/60');
+            event.currentTarget.classList.add('border-syntas-gold', 'bg-syntas-gold/15', 'shadow-lg');
+            updateCalc();
+        }
+
+        function setCalcSize(sizeKey, mult) {
+            if(sizeKey === 'small') calc.sizeName = 'Маленький (20х30)';
+            if(sizeKey === 'medium') calc.sizeName = 'Средний (30х40)';
+            if(sizeKey === 'large') calc.sizeName = 'Большой (40х50+)';
+            calc.sizeMult = mult;
+
+            document.querySelectorAll('.calc-size').forEach(b => {
+                b.classList.remove('border-syntas-gold', 'bg-syntas-gold/15', 'shadow');
+                b.classList.add('border-syntas-border', 'bg-syntas-dark/60');
+            });
+            event.currentTarget.classList.remove('border-syntas-border', 'bg-syntas-dark/60');
+            event.currentTarget.classList.add('border-syntas-gold', 'bg-syntas-gold/15', 'shadow');
+            updateCalc();
+        }
+
+        function setCalcColors(count, mult) {
+            calc.colorName = count === 4 ? 'Full color (CMYK)' : `${count} цвет${count > 1 ? 'а' : ''}`;
+            calc.colorMult = mult;
+
+            document.querySelectorAll('.calc-color').forEach(b => {
+                b.classList.remove('border-syntas-gold', 'bg-syntas-gold/15', 'shadow');
+                b.classList.add('border-syntas-border', 'bg-syntas-dark/60');
+            });
+            event.currentTarget.classList.remove('border-syntas-border', 'bg-syntas-dark/60');
+            event.currentTarget.classList.add('border-syntas-gold', 'bg-syntas-gold/15', 'shadow');
+            updateCalc();
+        }
+
+        function updateCalc() {
+            const qty = parseInt(document.getElementById('qtyRange').value);
+            calc.qty = qty;
+            document.getElementById('qtyVal').innerText = qty + ' шт';
+
+            let discount = 1.0;
+            if (qty >= 1000 && qty < 3000) discount = 0.9;
+            if (qty >= 3000) discount = 0.8;
+
+            let perItem = Math.round(calc.basePrice * calc.sizeMult * calc.colorMult * discount);
+            let total = perItem * qty;
+
+            document.getElementById('sumType').innerText = calc.typeName;
+            document.getElementById('sumSize').innerText = calc.sizeName;
+            document.getElementById('sumQty').innerText = qty + ' шт';
+            document.getElementById('sumColors').innerText = calc.colorName;
+            document.getElementById('sumPerItem').innerText = perItem.toLocaleString('ru-RU') + ' ₸';
+            document.getElementById('sumTotal').innerText = total.toLocaleString('ru-RU') + ' ₸';
+        }
+
+        function selectProductForCalc(typeKey, titleName) {
+            document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+            const btn = document.querySelector(`.calc-type[data-type="${typeKey}"]`);
+            if(btn) btn.click();
+        }
+
+        function sendToWhatsApp() {
+            const perItemText = document.getElementById('sumPerItem').innerText;
+            const totalText = document.getElementById('sumTotal').innerText;
+            const msg = `Здравствуйте! Хочу заказать пакеты с логотипом:\n- Тип: ${calc.typeName}\n- Размер: ${calc.sizeName}\n- Тираж: ${calc.qty} шт\n- Печать: ${calc.colorName}\n- Цена за шт: ${perItemText}\n- Итого: ${totalText}\n\nЖду подтверждения заказа!`;
+            const encoded = encodeURIComponent(msg);
+            window.location.href = `https://wa.me/message/R3TKN72WFOM7C1?text=${encoded}`;
+        }
+
+        window.onload = function() {
+            updateCalc();
+        };
+    
+        // Interactive 3D Syntas Print logo — affects only the Hero right-side object.
+        (function(){
+            const stage = document.getElementById('syntasOrbStage');
+            const orb = document.getElementById('syntasOrb');
+            if(!stage || !orb) return;
+
+            let rx = -8, ry = 18;
+            let dragging = false, lastX = 0, lastY = 0;
+            let autoX = 0.03, autoY = 0.08;
+
+            function render(){
+                orb.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
+            }
+            render();
+
+            stage.addEventListener('pointerdown', e => {
+                dragging = true;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                stage.classList.add('dragging');
+                stage.setPointerCapture(e.pointerId);
+            });
+
+            stage.addEventListener('pointermove', e => {
+                if(!dragging) return;
+                const dx = e.clientX - lastX;
+                const dy = e.clientY - lastY;
+                ry += dx * 0.55;
+                rx -= dy * 0.55;
+                autoX = -dy * 0.02;
+                autoY = dx * 0.02;
+                lastX = e.clientX;
+                lastY = e.clientY;
+                render();
+            });
+
+            function release(){
+                dragging = false;
+                stage.classList.remove('dragging');
+            }
+            stage.addEventListener('pointerup', release);
+            stage.addEventListener('pointercancel', release);
+
+            function animate(){
+                if(!dragging){
+                    ry += autoY;
+                    rx += autoX * 0.25;
+                    autoX *= 0.985;
+                    autoY *= 0.985;
+                    if(Math.abs(autoY) < 0.045) autoY = 0.045;
+                    if(Math.abs(autoX) < 0.010) autoX = 0.010;
+                    render();
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+    </script>
+</body>
+</html>
